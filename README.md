@@ -1,4 +1,4 @@
-# S1GNAL.ZER0 🛡️
+# S1GNAL.ZERO 🛡️
 
 <div align="center">
 
@@ -12,11 +12,11 @@
 
 ## 🎯 Mission
 
-**S1GNAL.ZER0** cuts through manufactured viral trends to reveal the truth behind digital hype. Our multi-agent AI system instantly detects bots, fake reviews, and coordinated manipulation campaigns, protecting consumers and businesses from FOMO-driven deception.
+**S1GNAL.ZERO** cuts through manufactured viral trends to reveal the truth behind digital hype. Our multi-agent AI system instantly detects bots, fake reviews, and coordinated manipulation campaigns, protecting consumers and businesses from FOMO-driven deception.
 
 ## 🚀 Built at AGI Ventures Canada Hackathon 3.0
 
-* **Event**: AGI Ventures Canada Hackathon 3.0
+* **Event**: [AGI Ventures Canada Hackathon 3.0](https://lu.ma/ai-tinkerers-ottawa) (formerly AI Tinkerers Ottawa)
 * **Date**: September 6-7, 2025
 * **Location**: Ottawa, Ontario
 * **Sponsor**: [Solace PubSub+](https://solace.com)
@@ -25,19 +25,18 @@
 
 ### 🤖 Multi-Agent Intelligence
 
-* **5 Specialized AI Agents** working in parallel
+* **Distributed Python Agents** communicating via Solace Agent Mesh
 * **Bot Detection Agent**: Identifies automated accounts and coordinated behavior
 * **Trend Analysis Agent**: Detects abnormal growth patterns and viral velocity
 * **Review Validator Agent**: Cross-references reviews with purchase patterns
-* **Paid Promotion Detector**: Identifies undisclosed sponsorships
-* **Reality Score Calculator**: Aggregates all signals into actionable insights
+* **Score Aggregator Agent**: Combines all signals into Reality Score™
 
-### ⚡ Real-Time Analysis
+### ⚡ Event-Driven Architecture
 
-* Sub-second response times
+* All analysis requests via Solace topics
 * Powered by Solace PubSub+ event streaming
-* Processes thousands of signals per second
-* Guaranteed message delivery
+* JCSMP client for guaranteed message delivery
+* Real-time WebSocket updates to UI
 
 ### 📊 Reality Score™
 
@@ -50,30 +49,30 @@ Our proprietary scoring algorithm provides:
 ## 🔍 Use Cases
 
 1. **Consumer Protection**: Avoid FOMO-driven purchases on manufactured viral products
-2. **Investment Intelligence**: Detect pump-and-dump schemes in meme stocks
-3. **Brand Protection**: Identify competitor sabotage and fake review attacks
-4. **Influencer Due Diligence**: Verify authentic engagement before partnerships
-5. **Platform Integrity**: Combat misinformation and coordinated campaigns
+2. **Brand Protection**: Identify competitor sabotage and fake review attacks
+3. **Marketing Due Diligence**: Verify influencer authenticity before partnerships
+4. **E-commerce Intelligence**: Detect dropshipping scams and bot-driven trends
+5. **Investment Analysis**: Identify pump-and-dump schemes in viral stocks
 
 ## 🛠️ Technology Stack
 
 * **Event Broker**: Solace PubSub+ for real-time messaging
-* **AI Framework**: Multi-agent architecture with Agent Mesh
-* **Backend**: Python agents with parallel processing
-* **Cache**: Redis for real-time data
-* **Database**: PostgreSQL for historical analysis
-* **Frontend**: HTML5 with advanced SVG animations
+* **AI Framework**: Python Agent Mesh for distributed processing
+* **Backend**: Spring Boot (Java) with Solace JCSMP
+* **Frontend**: Vaadin UI with real-time WebSocket updates
+* **Database**: PostgreSQL for user data and analysis history
+* **Landing Page**: Static HTML with advanced animations
 
 ## 📈 Performance Metrics
 
 * **94%** Bot detection accuracy
-* **3.2s** Average analysis time
-* **12M+** Analyses completed
-* **$2.4M** Saved by users from avoided scams
+* **Sub-second** Event streaming latency
+* **Parallel** Agent processing
+* **99.999%** Uptime via Solace guarantees
 
 ## 🎮 Live Demo
 
-Visit our live demo at [https://s1gnal-zero.github.io](https://s1gnal-zero.github.io)
+Visit our landing page at [https://s1gnal-zero.github.io](https://s1gnal-zero.github.io)
 
 ### Example Analysis: Stanley Cup Tumbler
 
@@ -85,68 +84,102 @@ Visit our live demo at [https://s1gnal-zero.github.io](https://s1gnal-zero.githu
 
 ## 🏗️ Architecture
 
-    User Query → Solace PubSub+ Event Broker
-                    ↓
-            [Parallel Agent Execution]
-            ├── Trend Detection Agent
-            ├── Bot Analysis Agent
-            ├── Review Validation Agent
-            ├── Paid Promotion Agent
-            └── Score Aggregation Agent
-                    ↓
-            Reality Score™ + Evidence
+       Vaadin Web UI
+            ↓ WebSocket
+       Spring Boot App
+            ↓ JCSMP
+      ┌─────────────┐
+      │ Solace      │ ← Event Broker
+      │ PubSub+     │
+      └─────┬───────┘
+            ↓ Topics
+      [Agent Mesh - Python]
+      ├── Bot Detection Agent
+      ├── Trend Analysis Agent  
+      ├── Review Validator Agent
+      └── Score Aggregator Agent
+            ↓
+        PostgreSQL
 
 ## 🚦 Getting Started
 
 ### Prerequisites
 
-* Solace PubSub+ Broker (local or cloud)
-* Python 3.10+
-* Redis
-* PostgreSQL
+* Solace PubSub+ Broker (Docker or Cloud)
+* Java 17+ (Spring Boot)
+* Python 3.10+ (Agents)
+* PostgreSQL 14+
+* Maven 3.8+
 
 ### Installation
 
     # Clone the repository
     git clone https://github.com/S1GNAL-ZERO/S1GNAL-ZERO.github.io.git
+    cd S1GNAL-ZERO
     
-    # Install dependencies
-    pip install -r requirements.txt
+    # Start Solace PubSub+ Docker
+    docker run -d -p 55555:55555 -p 8080:8080 -p 1883:1883 \
+      --name=solace-pubsub solace/solace-pubsub-standard
     
-    # Configure Solace connection
+    # Set up PostgreSQL database
+    createdb signalzero
+    psql signalzero < database/schema.sql
+    
+    # Configure environment
     export SOLACE_HOST="tcp://localhost:55555"
     export SOLACE_VPN="default"
     export SOLACE_USERNAME="admin"
     export SOLACE_PASSWORD="admin"
+    export DB_URL="jdbc:postgresql://localhost:5432/signalzero"
     
-    # Start the agents
-    python start_agents.py
+    # Start Spring Boot backend
+    cd backend
+    mvn spring-boot:run
     
-    # Launch the web interface
-    open index.html
+    # Start Python agents
+    cd ../agents
+    pip install -r requirements.txt
+    python start_all_agents.py
+    
+    # Access the application
+    open http://localhost:8080
 
 ## 📡 Solace Integration
 
-S1GNAL.ZER0 leverages Solace PubSub+ for:
+S1GNAL.ZERO leverages Solace PubSub+ for:
 
-* **Event-Driven Architecture**: All analysis requests via Solace topics
-* **Guaranteed Delivery**: Never lose an analysis request
-* **Parallel Processing**: Multiple agents working simultaneously
-* **Real-Time Updates**: Live streaming of analysis results
-* **Scalability**: Handle viral spikes without infrastructure changes
+* **Event-Driven Architecture**: All analysis requests flow through Solace topics
+* **Guaranteed Delivery**: Persistent messaging ensures no analysis is lost
+* **Agent Mesh**: Seamless communication between Java services and Python agents
+* **Real-Time Updates**: Live streaming of analysis progress
+* **Scalability**: Handle viral traffic spikes without infrastructure changes
 
 ### Topic Structure
 
-    fomokiller/analysis/request/{userId}/{analysisId}
-    fomokiller/agent/bot-detector/request
-    fomokiller/agent/trend-analyzer/request
-    fomokiller/updates/score/{analysisId}
+    signalzero/analysis/request/{userId}/{analysisId}
+    signalzero/agent/bot-detector/request
+    signalzero/agent/bot-detector/response
+    signalzero/agent/trend-analyzer/request
+    signalzero/agent/trend-analyzer/response
+    signalzero/updates/score/{analysisId}
+    signalzero/usage/analysis/{userId}
+
+## 💰 Monetization
+
+### Subscription Tiers
+
+| Tier | Price | Monthly Analyses | Features |
+| --- | --- | --- | --- |
+| **FREE** | $0  | 3   | Basic Reality Score |
+| **PRO** | $99/mo | 100 | Detailed reports, API access |
+| **BUSINESS** | $499/mo | 1,000 | Team access, priority queue |
+| **ENTERPRISE** | Custom | Unlimited | SLA, dedicated Solace queue |
 
 ## 🤝 Team
 
-Built with ❤️ by the S1GNAL.ZER0 team at AGI Ventures Canada Hackathon 3.0
+Built with ❤️ by the S1GNAL.ZERO team at AGI Ventures Canada Hackathon 3.0
 
-### Event Hosts
+### Event Organizers
 
 * Hai
 * Sukhpal Saini
@@ -162,15 +195,15 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 🙏 Acknowledgments
 
 * **[Solace](https://solace.com)** for sponsoring and providing PubSub+ platform
-* **[AGI Ventures Canada](https://lu.ma/agiventures)** for organizing the hackathon
-* All participants and mentors who provided feedback
+* **[AGI Ventures Canada](https://lu.ma/ai-tinkerers-ottawa)** for organizing the hackathon
+* The open source community for inspiration
 
 ## 📞 Contact
 
 * **Website**: [https://s1gnal-zero.github.io](https://s1gnal-zero.github.io)
-* **Email**: [S1GNAL.ZERO.42@gmail.com](mailto:S1GNAL.ZERO.42@gmail.com)
+* **Email**: [s1gnal.zero.42@gmail.com](mailto:s1gnal.zero.42@gmail.com)
 * **GitHub**: [@S1GNAL-ZERO](https://github.com/S1GNAL-ZERO)
-* **Event**: [AGI Ventures Canada](https://lu.ma/agiventures)
+* **Event**: [AGI Ventures Canada](https://lu.ma/ai-tinkerers-ottawa)
 
 * * *
 
@@ -178,6 +211,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Detecting truth in digital noise, one signal at a time.**
 
-*S1GNAL.ZER0 - Because truth matters in the age of virality.*
+*S1GNAL.ZERO - Because authenticity matters in the age of virality.*
 
 </div>
