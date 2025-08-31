@@ -188,16 +188,64 @@ S1GNAL.ZERO leverages Solace PubSub+ for:
     signalzero/updates/score/{analysisId}
     signalzero/usage/analysis/{userId}
 
-## 💰 Monetization
+## 💰 Monetization Model
+
+### Usage-Based Freemium Strategy
+
+S1GNAL.ZERO implements a **usage-based freemium model** that balances public transparency with private insights:
+
+#### Access Levels
+
+**1. Public View (No Account)**
+
+* **Full access** to system-wide dashboard showing real-time manipulation detection
+* **View only** - cannot run personal analyses
+* **Purpose**: Build trust and create urgency by showing live detection capabilities
+
+**2. Authenticated Users (Account Required)**
+
+* **Personal dashboard** with analysis history
+* **Usage-based limits** enforced via Solace events
+* **Automatic blocking** when monthly quota exceeded
 
 ### Subscription Tiers
 
-| Tier | Price | Monthly Analyses | Features |
-| --- | --- | --- | --- |
-| **FREE** | $0  | 3   | Basic Reality Score |
-| **PRO** | $99/mo | 100 | Detailed reports, API access |
-| **BUSINESS** | $499/mo | 1,000 | Team access, priority queue |
-| **ENTERPRISE** | Custom | Unlimited | SLA, dedicated Solace queue |
+| Tier | Price | Monthly Analyses | Features | Use Case |
+| --- | --- | --- | --- | --- |
+| **PUBLIC** | Free | 0 (View Only) | Live dashboard, community feed | Awareness & lead generation |
+| **FREE** | $0  | 3   | Basic Reality Score only | Trust building & proof of value |
+| **PRO** | $99/mo | 100 | Detailed reports, API access, 90-day history | Individual power users |
+| **BUSINESS** | $499/mo | 1,000 | Team seats (5+), priority queue, 1-year history | Marketing teams & agencies |
+| **ENTERPRISE** | Custom | Unlimited | Dedicated Solace queue, SLA, white-label | Large organizations |
+
+### How It Works
+
+The system tracks usage in real-time via Solace events:
+
+    fomokiller/usage/analysis/{userId}        # Track each analysis
+    fomokiller/usage/limit-reached/{userId}   # Block when limit hit
+    fomokiller/subscription/upgraded/{userId} # Unlock on payment
+
+When users hit their limit:
+
+1. Analysis request is **blocked** at the service level
+2. User sees upgrade prompt with clear value proposition
+3. Payment instantly unlocks continued access
+4. Monthly usage resets automatically
+
+### Revenue Psychology
+
+1. **Public Dashboard** → Creates FOMO ("What's manipulating MY interests?")
+2. **Free Tier** → Proves value with 3 analyses (enough to trust, not enough to depend on)
+3. **Usage Limits** → Fair, transparent pricing based on actual needs
+4. **Detail Gating** → Free users see the score, paid users see the evidence
+
+### Key Differentiators
+
+* **No feature degradation** - All tiers get same AI quality
+* **Volume-based pricing** - Pay for how much you analyze, not what you analyze
+* **Transparent limits** - Clear usage tracking visible in UI
+* **Instant upgrades** - No waiting period, immediate access upon payment
 
 ## 🤝 Team
 
