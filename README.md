@@ -74,6 +74,30 @@ Our proprietary scoring algorithm provides:
 
 Visit our landing page at [https://s1gnal-zero.github.io](https://s1gnal-zero.github.io)
 
+### Dashboard Overview
+
+The S1GNAL.ZERO dashboard provides a **real-time system-wide view** of viral trend manipulation across the internet. This public feed showcases:
+
+#### System Metrics (Top Row)
+
+* **Average Bot Detection**: Aggregated bot percentage across all platform analyses
+* **Median Analysis Time**: System-wide processing speed performance
+* **Active Data Sources**: Number of connected APIs and data feeds
+
+#### Reality Score™ Gauge
+
+* **Live Aggregate Score**: Combined authenticity rating of recent system activity
+* **Trend Indicators**: Real-time detection of bot surges, paid promotions, and review clusters
+* **Visual Feedback**: Color-coded gauge (red/yellow/green) showing overall manipulation levels
+
+#### Latest Flags Feed
+
+* **Multi-Subject Monitoring**: Real-time feed of analyses across different products, influencers, and stocks
+* **Community Intelligence**: See what other users are investigating (Stanley Cup tumblers, meme stocks, viral claims)
+* **Pattern Detection**: Instant visibility into coordinated manipulation campaigns as they emerge
+
+This system-wide view demonstrates S1GNAL.ZERO's capability to monitor and analyze multiple viral trends simultaneously, providing transparency into the digital manipulation landscape. Individual users also have access to their personal analysis history and detailed reports based on their subscription tier.
+
 ### Example Analysis: Stanley Cup Tumbler
 
     Reality Score: 34%
@@ -178,6 +202,14 @@ S1GNAL.ZERO leverages Solace PubSub+ for:
 ## 🤝 Team
 
 Built with ❤️ by the S1GNAL.ZERO team at AGI Ventures Canada Hackathon 3.0
+
+### Project Creator
+
+**Shawn Jackson Dyck** - Leader behind the build
+
+* Email: [shawn@samjdtechnologies.com](mailto:shawn@samjdtechnologies.com)
+* GitHub: [@samjd-zz](https://github.com/samjd-zz)
+* Known for: [Answer42](https://github.com/samjd-zz/answer42)
 
 ### Event Organizers
 
