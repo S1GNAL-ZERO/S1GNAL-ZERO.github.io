@@ -324,6 +324,239 @@
             text-transform: uppercase;
             letter-spacing: 2px;
         }
+
+        /* Pricing Section */
+        .pricing {
+            padding: 100px 30px;
+            background: linear-gradient(180deg, #0f1525 0%, var(--darker) 100%);
+            position: relative;
+        }
+
+        .pricing::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at center, rgba(102, 126, 234, 0.05) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .pricing-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .pricing-title {
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
+            font-weight: 800;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .pricing-subtitle {
+            color: var(--muted);
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            margin-bottom: 30px;
+        }
+
+        .early-access-banner {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(90deg, #ff416c, #ff4b2b);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            box-shadow: 0 5px 15px rgba(255, 65, 108, 0.4);
+            animation: pulse-glow 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 5px 15px rgba(255, 65, 108, 0.4); }
+            50% { box-shadow: 0 8px 25px rgba(255, 75, 43, 0.6); }
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 1024px) {
+            .pricing-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .pricing-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(102, 126, 234, 0.2);
+            border-radius: 20px;
+            padding: 40px 30px;
+            position: relative;
+            transition: all 0.3s;
+            text-align: center;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(102, 126, 234, 0.4);
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.2);
+        }
+
+        .pricing-card.featured {
+            border: 2px solid var(--primary);
+            transform: scale(1.05);
+        }
+
+        .pricing-card.featured::before {
+            content: 'Most Popular';
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+
+        .pricing-tier {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .pricing-price {
+            font-size: 3rem;
+            font-weight: 900;
+            color: white;
+            margin-bottom: 5px;
+        }
+
+        .pricing-price .currency {
+            font-size: 1.5rem;
+            vertical-align: top;
+        }
+
+        .pricing-period {
+            color: var(--muted);
+            font-size: 1rem;
+            margin-bottom: 30px;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 40px;
+        }
+
+        .pricing-features li {
+            padding: 8px 0;
+            color: var(--light);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .pricing-features li::before {
+            content: '✓';
+            color: var(--success);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .pricing-features .limit {
+            color: var(--warning);
+        }
+
+        .pricing-features .unlimited {
+            color: var(--success);
+            font-weight: 600;
+        }
+
+        .pricing-btn {
+            width: 100%;
+            padding: 15px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-block;
+            border: none;
+            cursor: pointer;
+        }
+
+        .pricing-btn-primary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+
+        .pricing-btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.6);
+        }
+
+        .pricing-btn-secondary {
+            background: transparent;
+            color: var(--light);
+            border: 2px solid rgba(102, 126, 234, 0.5);
+        }
+
+        .pricing-btn-secondary:hover {
+            background: rgba(102, 126, 234, 0.1);
+            border-color: var(--primary);
+        }
+
+        .founder-special {
+            background: linear-gradient(135deg, #ff416c 0%, #ff4b2b 100%) !important;
+            color: white !important;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .founder-special::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        .strike-through {
+            text-decoration: line-through;
+            opacity: 0.6;
+            color: var(--muted);
+        }
+
+        .founder-price {
+            color: #ff4b2b;
+            font-weight: 900;
+        }
         
         /* Tech Stack */
         .tech-stack {
@@ -573,6 +806,24 @@
             .stat-label {
                 font-size: 0.9rem;
             }
+
+            .pricing {
+                padding: 60px 25px;
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .pricing-card.featured {
+                transform: none;
+            }
+
+            .early-access-banner {
+                font-size: 0.85rem;
+                padding: 10px 20px;
+            }
             
             .tech-stack {
                 padding: 60px 25px;
@@ -646,6 +897,10 @@
             .btn {
                 font-size: 0.9rem;
                 padding: 10px 20px;
+            }
+
+            .pricing-price {
+                font-size: 2.5rem;
             }
         }
         @keyframes pulse {
@@ -944,6 +1199,91 @@
             </div>
         </div>
     </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing">
+        <div class="pricing-header">
+            <h2 class="pricing-title">Simple, Transparent Pricing</h2>
+            <p class="pricing-subtitle">Pay only for what you analyze. No hidden fees, no feature degradation.</p>
+            <div class="early-access-banner">
+                🔥 Limited Time: Founder's Lifetime Access for $9.99
+            </div>
+        </div>
+
+        <div class="pricing-grid">
+            <!-- Public Tier -->
+            <div class="pricing-card">
+                <div class="pricing-tier">Public</div>
+                <div class="pricing-price">
+                    <span class="currency">$</span>0
+                </div>
+                <div class="pricing-period">Forever</div>
+                <ul class="pricing-features">
+                    <li>Live system dashboard</li>
+                    <li>Community detection feed</li>
+                    <li>View manipulation trends</li>
+                    <li class="limit">No personal analyses</li>
+                </ul>
+                <a href="#demo" class="pricing-btn pricing-btn-secondary">View Dashboard</a>
+            </div>
+
+            <!-- Free Tier -->
+            <div class="pricing-card">
+                <div class="pricing-tier">Free</div>
+                <div class="pricing-price">
+                    <span class="currency">$</span>0
+                </div>
+                <div class="pricing-period">per month</div>
+                <ul class="pricing-features">
+                    <li>3 analyses per month</li>
+                    <li>Basic Reality Score™</li>
+                    <li>Account required</li>
+                    <li class="limit">No detailed reports</li>
+                </ul>
+                <a href="https://tally.so/r/mK9RAD" class="pricing-btn pricing-btn-secondary">Join Waitlist</a>
+            </div>
+
+            <!-- Pro Tier (Most Popular) -->
+            <div class="pricing-card featured">
+                <div class="pricing-tier">Pro</div>
+                <div class="pricing-price">
+                    <span class="strike-through">$99</span>
+                    <br>
+                    <span class="founder-price currency">$</span><span class="founder-price">9.99</span>
+                </div>
+                <div class="pricing-period">Founder's Lifetime Access</div>
+                <ul class="pricing-features">
+                    <li class="unlimited">100 analyses/month normally</li>
+                    <li class="unlimited">Unlimited with founder's deal</li>
+                    <li>Detailed manipulation reports</li>
+                    <li>API access included</li>
+                    <li>90-day analysis history</li>
+                    <li>Priority support</li>
+                </ul>
+                <a href="https://buy.stripe.com/eVqeV6dLqf1c2LQ3PCc7u00" class="pricing-btn founder-special" target="_blank">
+                    Get Founder's Access Now
+                </a>
+            </div>
+
+            <!-- Business Tier -->
+            <div class="pricing-card">
+                <div class="pricing-tier">Business</div>
+                <div class="pricing-price">
+                    <span class="currency">$</span>499
+                </div>
+                <div class="pricing-period">per month</div>
+                <ul class="pricing-features">
+                    <li>1,000 analyses per month</li>
+                    <li>Team seats (5+ users)</li>
+                    <li>Priority analysis queue</li>
+                    <li>1-year analysis history</li>
+                    <li>Advanced reporting</li>
+                    <li>Dedicated support</li>
+                </ul>
+                <a href="mailto:s1gnal.zero.42@gmail.com" class="pricing-btn pricing-btn-secondary">Contact Sales</a>
+            </div>
+        </div>
+    </section>
     
     <!-- Demo Section -->
     <section class="demo" id="demo">
@@ -1142,7 +1482,7 @@
         }, observerOptions);
         
         // Observe feature cards and stat items
-        document.querySelectorAll('.feature-card, .stat-item').forEach(el => {
+        document.querySelectorAll('.feature-card, .stat-item, .pricing-card').forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(20px)';
             el.style.transition = 'all 0.6s ease-out';
