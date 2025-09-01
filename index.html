@@ -648,6 +648,42 @@
                 padding: 10px 20px;
             }
         }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 20px rgba(255, 65, 108, 0.6); }
+            50% { transform: scale(1.05); box-shadow: 0 0 30px rgba(255, 75, 43, 0.8); }
+        }
+
+        #buy-now-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 9999;
+            background: linear-gradient(90deg, #ff416c, #ff4b2b);
+            color: #fff !important;
+            font-weight: 700;
+            box-shadow: 0 0 20px rgba(255, 65, 108, 0.6);
+            animation: pulse 1.5s infinite;
+        }
+        
+        #buy-now-btn:hover {
+            transform: scale(1.08);
+            box-shadow: 0 0 25px rgba(255, 75, 43, 0.8);
+        }
+        
+        #buy-now-btn::after {
+            content: "🔥 Early Access";
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: #fff;
+            color: #ff4b2b;
+            font-size: 0.7rem;
+            font-weight: bold;
+            padding: 3px 6px;
+            border-radius: 12px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
     </style>
 </head>
 <body>
@@ -812,6 +848,14 @@
             </div>
         </div>
     </section>
+
+    <!-- Floating Buy Now Button -->
+    <a href="https://buy.stripe.com/test_14A8wJ803e72gnH5os7ok00" 
+       target="_blank" 
+       id="buy-now-btn" 
+       class="btn btn-primary">
+       <span>Buy Now – Founder's Lifetime $9.99</span>
+    </a>
     
     <!-- Features Section -->
     <section class="features">
@@ -918,7 +962,7 @@
                         
                         <!-- Score arc -->
                         <circle cx="100" cy="100" r="90" fill="none" stroke="url(#scoreGrad)" stroke-width="20"
-                                stroke-dasharray="283" stroke-dashoffset="186" stroke-linecap="round"
+                                stroke-dasharray="565" stroke-dashoffset="186" stroke-linecap="round"
                                 transform="rotate(-90 100 100)">
                             <animate attributeName="stroke-dashoffset" values="283;186" dur="2s" fill="freeze"/>
                         </circle>
