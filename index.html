@@ -376,11 +376,18 @@
             font-size: 0.95rem;
             box-shadow: 0 5px 15px rgba(255, 65, 108, 0.4);
             animation: pulse-glow 2s ease-in-out infinite;
+            margin-bottom: 15px;
         }
 
         @keyframes pulse-glow {
             0%, 100% { box-shadow: 0 5px 15px rgba(255, 65, 108, 0.4); }
             50% { box-shadow: 0 8px 25px rgba(255, 75, 43, 0.6); }
+        }
+
+        .currency-note {
+            color: var(--muted);
+            font-size: 0.85rem;
+            font-style: italic;
         }
 
         .pricing-grid {
@@ -463,14 +470,16 @@
         .pricing-features {
             list-style: none;
             margin-bottom: 40px;
+            text-align: left;
         }
 
         .pricing-features li {
             padding: 8px 0;
             color: var(--light);
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             gap: 10px;
+            font-size: 0.95rem;
         }
 
         .pricing-features li::before {
@@ -478,6 +487,8 @@
             color: var(--success);
             font-weight: bold;
             font-size: 1.2rem;
+            flex-shrink: 0;
+            margin-top: -2px;
         }
 
         .pricing-features .limit {
@@ -500,6 +511,7 @@
             display: inline-block;
             border: none;
             cursor: pointer;
+            text-align: center;
         }
 
         .pricing-btn-primary {
@@ -551,6 +563,7 @@
             text-decoration: line-through;
             opacity: 0.6;
             color: var(--muted);
+            font-size: 2rem;
         }
 
         .founder-price {
@@ -723,15 +736,59 @@
             border-top: 1px solid rgba(102, 126, 234, 0.1);
         }
         
+        /* Floating Buy Button */
+        .floating-buy-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 9999;
+            background: linear-gradient(90deg, #ff416c, #ff4b2b);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            box-shadow: 0 0 20px rgba(255, 65, 108, 0.6);
+            animation: pulse 1.5s infinite;
+            transition: all 0.3s;
+            white-space: nowrap;
+        }
+
+        .floating-buy-btn:hover {
+            transform: scale(1.08);
+            box-shadow: 0 0 25px rgba(255, 75, 43, 0.8);
+        }
+
+        .floating-buy-btn::after {
+            content: "🔥 Early Access";
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: #fff;
+            color: #ff4b2b;
+            font-size: 0.7rem;
+            font-weight: bold;
+            padding: 3px 6px;
+            border-radius: 12px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        @keyframes pulse {
+            0%, 100% { 
+                transform: scale(1); 
+                box-shadow: 0 0 20px rgba(255, 65, 108, 0.6); 
+            }
+            50% { 
+                transform: scale(1.05); 
+                box-shadow: 0 0 30px rgba(255, 75, 43, 0.8); 
+            }
+        }
+        
         /* Mobile Responsive Styles */
         @media (max-width: 768px) {
             .hero {
                 padding: 40px 25px;
-                min-height: 100vh;
-            }
-            
-            .logo-container {
-                margin-bottom: 30px;
             }
             
             .logo-container svg {
@@ -741,20 +798,17 @@
             
             h1 {
                 font-size: 2.2rem;
-                margin-bottom: 15px;
                 letter-spacing: -1px;
             }
             
             .tagline {
                 font-size: 0.95rem;
-                margin-bottom: 20px;
                 letter-spacing: 1px;
             }
             
             .description {
                 font-size: 0.95rem;
                 line-height: 1.6;
-                margin-bottom: 30px;
                 padding: 0 10px;
             }
             
@@ -762,7 +816,6 @@
                 padding: 10px 15px;
                 gap: 8px;
                 font-size: 0.8rem;
-                margin-bottom: 30px;
             }
             
             .btn {
@@ -823,6 +876,13 @@
             .early-access-banner {
                 font-size: 0.85rem;
                 padding: 10px 20px;
+            }
+
+            .floating-buy-btn {
+                bottom: 10px;
+                right: 10px;
+                padding: 12px 20px;
+                font-size: 0.9rem;
             }
             
             .tech-stack {
@@ -902,43 +962,12 @@
             .pricing-price {
                 font-size: 2.5rem;
             }
-        }
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); box-shadow: 0 0 20px rgba(255, 65, 108, 0.6); }
-            50% { transform: scale(1.05); box-shadow: 0 0 30px rgba(255, 75, 43, 0.8); }
-        }
 
-        #buy-now-btn {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 9999;
-            background: linear-gradient(90deg, #ff416c, #ff4b2b);
-            color: #fff !important;
-            font-weight: 700;
-            box-shadow: 0 0 20px rgba(255, 65, 108, 0.6);
-            animation: pulse 1.5s infinite;
+            .floating-buy-btn {
+                font-size: 0.8rem;
+                padding: 10px 16px;
+            }
         }
-        
-        #buy-now-btn:hover {
-            transform: scale(1.08);
-            box-shadow: 0 0 25px rgba(255, 75, 43, 0.8);
-        }
-        
-        #buy-now-btn::after {
-            content: "🔥 Early Access";
-            position: absolute;
-            top: -10px;
-            right: -10px;
-            background: #fff;
-            color: #ff4b2b;
-            font-size: 0.7rem;
-            font-weight: bold;
-            padding: 3px 6px;
-            border-radius: 12px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-        }
-
     </style>
 </head>
 <body>
@@ -1100,8 +1129,8 @@
                 <a href="https://s1gnal-zero.github.io/" class="btn btn-secondary">
                     <span>View on GitHub</span>
                 </a>
-                 <a href="https://tally.so/r/mK9RAD"  class="btn btn-secondary">
-                    <span>Join our waitlist!</span>
+                <a href="https://tally.so/r/mK9RAD" class="btn btn-secondary">
+                    <span>Join Waitlist</span>
                 </a>
                 <a href="https://www.facebook.com/s1gnal.zero" class="btn btn-secondary">
                     <span style="display:inline-block;width:20px;height:20px;background:#1877F2;border-radius:4px;color:white;text-align:center;line-height:20px;font-size:12px;font-weight:bold;font-family:Arial,sans-serif;margin-right:5px;">f</span>
@@ -1112,11 +1141,10 @@
     </section>
 
     <!-- Floating Buy Now Button -->
-     <a href="https://buy.stripe.com/eVqeV6dLqf1c2LQ3PCc7u00" 
+    <a href="https://buy.stripe.com/eVqeV6dLqf1c2LQ3PCc7u00" 
        target="_blank" 
-       id="buy-now-btn" 
-       class="btn btn-primary">
-       <span>Buy Now – Founder's Lifetime $9.99 CAD</span>
+       class="floating-buy-btn">
+       Buy Now – Founder's Lifetime $9.99 CAD
     </a>
     
     <!-- Features Section -->
@@ -1208,7 +1236,7 @@
             <div class="early-access-banner">
                 🔥 Limited Time: Founder's Lifetime Access for $9.99 CAD
             </div>
-            <p style="color: var(--muted); font-size: 0.85rem; margin-top: 10px;">*All prices displayed in Canadian dollars</p>
+            <p class="currency-note">All prices displayed in Canadian dollars</p>
         </div>
 
         <div class="pricing-grid">
@@ -1257,7 +1285,7 @@
                 <ul class="pricing-features">
                     <li>300 analyses per month</li>
                     <li class="unlimited">Lifetime access (normally $69/mo)</li>
-                    <li>Detailed reports</li>
+                    <li>Detailed manipulation reports</li>
                     <li>API access included</li>
                     <li>90-day analysis history</li>
                     <li>Priority support</li>
